@@ -1,5 +1,8 @@
 % Face Recognition using PCA
 
+% Adding all subfolders in order to work
+addpath(genpath(pwd))
+
 % Initial variables
 db_identifier = 'AT&T';
 
@@ -25,7 +28,10 @@ end
 [eigenfaces, projection, mean] = train(n_features, x_train, y_train);
 
 % Testing the model
-[test_eigenface, min_index, max_index] = test(eigenfaces, projection, mean, x_test, y_test);
+[test_eigenface, min_index, max_index] = test(eigenfaces, projection, mean, x_test);
+
+% Using test's output in order to derive some metrics
+score = metrics(y_train, y_test, min_index);
 
 % Plotting actual minimum and maximum distance faces, along with the test one
 plot_faces(x_train, x_test, min_index, max_index);

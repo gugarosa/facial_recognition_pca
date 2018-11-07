@@ -1,5 +1,5 @@
 % Tests a face recognition system calculating distance between eigenfaces
-function [test_eigenface, min_img, max_img] = test(eigenfaces, V, mean, x_test, y_test)
+function [test_eigenface, min_img, max_img] = test(eigenfaces, V, mean, x_test)
 
 % Creates a test image without the mean image
 x_test_without_mean = x_test - mean;
